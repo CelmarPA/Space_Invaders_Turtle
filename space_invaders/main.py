@@ -237,6 +237,7 @@ class ScreenGame:
                 self.shields.check_collision_with_aliens(self.aliens.aliens)
                 self.check_laser_collisions()
                 self.check_boss_hit()
+                self.check_alien_touch_ship()
 
                 # Change the game level
                 if not self.aliens.aliens and not self.paused:
@@ -479,6 +480,26 @@ class ScreenGame:
 
             self.boss_ship.handle_hit()
 
+    def check_alien_touch_ship(self):
+        """
+        Check if any alien has collided with the player's ship.
+        Ends the game if a collision is detected.
+        """
+
+        for alien in self.aliens.aliens:
+                if alien.distance(self.active_ship) < self.active_ship.ship_width / 2:
+                    self.active_ship.handle_hit()
+                    self.active_ship.lives = 0
+
+                    if self.active_ship == self.player1_ship:
+                        self.scoreboard.update_lives(player=1, lives=self.active_ship.lives)
+
+                    else:
+                        self.scoreboard.update_lives(player=2, lives=self.active_ship.lives)
+
+                    self.switch_player()
+                    break
+
     def update_active_player_score(self):
         """
         Update the active player's score when an enemy is destroyed.
@@ -558,8 +579,6 @@ class ScreenGame:
         self.screen.onkey(lambda: self.choose_difficulty("medium"), "2")
         self.screen.onkey(lambda: self.choose_difficulty("hard"), "3")
         self.screen.listen()
-
-
 
     def choose_difficulty(self, difficulty):
         """
@@ -668,7 +687,6 @@ class ScreenGame:
         self.screen.onkey(lambda: self.level_manager.set_difficulty("medium"), "2")
         self.screen.onkey(lambda: self.level_manager.set_difficulty("hard"), "3")
         self.screen.listen()
-
 
     def exit_game(self):
         """

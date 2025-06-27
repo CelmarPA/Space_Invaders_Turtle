@@ -20,6 +20,8 @@ class EnemyLaser(Turtle):
         """
 
         super().__init__()
+
+        self.hideturtle()
         self.shape("square")
         self.color("red")       # Red color to differentiate from player laser
         self.penup()
@@ -32,6 +34,8 @@ class EnemyLaser(Turtle):
 
         # Point laser down (270 degrees in turtle heading)
         self.setheading(270)
+
+        self.showturtle()
 
         # Track whether the laser is still active and visible
         self.active = True

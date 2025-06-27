@@ -1,4 +1,4 @@
-from turtle import Turtle
+from turtle import Turtle, Screen
 from game_specs import WALLS, ALIENS, MAX_ENEMY_LASERS
 from enemy_laser import EnemyLaser
 from random import choice, randint, random
@@ -26,7 +26,7 @@ class Aliens:
         self.aliens = []    # List holding active alien Turtle objects
 
         # Get the screen reference from a Turtle instance
-        self.screen = Turtle().screen
+        self.screen = Screen()
 
         # Load alien images for different alien types and boss
         self.screen.addshape("images/aliens/alien.gif")
@@ -63,9 +63,11 @@ class Aliens:
         """
 
         alien = Turtle()
+        alien.hideturtle()
         alien.shape(image)
         alien.penup()
         alien.goto(position)
+        alien.showturtle()
 
         self.aliens.append(alien)
 

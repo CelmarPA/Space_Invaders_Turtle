@@ -30,7 +30,7 @@ ALIENS = {
 
 # Maximum number of enemy lasers allowed on screen simultaneously.
 # Limits how many shots enemies can fire to balance game difficulty.
-MAX_ENEMY_LASERS = 2
+MAX_ENEMY_LASERS = 1
 
 # Speed at which lasers travel across the screen.
 # Higher value means lasers move faster.

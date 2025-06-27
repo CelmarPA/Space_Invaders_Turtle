@@ -35,6 +35,8 @@ A retro-style **Space Invaders** game developed in **Python** using the **Turtle
 - The game keeps the highest score using a json file
 - Game state management including pause, resume, and reset
 
+![Space Invaders Screenshot](space_invaders/images/screenshot/screenshot.png)
+
 ---
 
 ## ⚙️ How It Works
@@ -70,7 +72,7 @@ cd space_invaders
 
 ```bash
 pip install pygame
-python window.py
+python main.py
 ```
 
 > Make sure the `sounds/` folder contains all required audio files.

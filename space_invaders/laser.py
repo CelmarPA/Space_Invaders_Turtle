@@ -20,6 +20,7 @@ class Laser(Turtle):
         super().__init__()
 
         # Set up basic laser appearance and behavior
+        self.hideturtle()
         self.shape("square")        # Default shape for the laser
         self.color("green")         # Green to differentiate from enemy lasers
         self.penup()                # Prevent drawing lines
@@ -27,6 +28,7 @@ class Laser(Turtle):
         self.goto(position)         # Set laser's starting position
         self.shapesize(stretch_wid=0.3, stretch_len=0.8)        # Make laser thin and narrow
         self.setheading(90)         # Point laser upward (90 degrees)
+        self.showturtle()
 
         self.active = True         # Flag indicating whether the laser is still in play
 

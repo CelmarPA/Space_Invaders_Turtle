@@ -25,7 +25,7 @@ class ShieldBlock(Turtle):
         super().__init__()
 
         self.screen = screen        # Store screen reference for event scheduling
-
+        self.hideturtle()
         self.penup()                # Disable drawing lines when moving
         self.shape("square")        # Use square shape to represent block
         self.color("green")         # Initial color indicating full health
@@ -34,6 +34,7 @@ class ShieldBlock(Turtle):
         self.shapesize(stretch_wid=size[1] / 20, stretch_len=size[0] / 20)
 
         self.goto(position)         # Move block to initial position on screen
+        self.showturtle()
 
         self.active = True          # Indicates if the block is alive/visible
         self.hp = 3         # Starting health points of the block

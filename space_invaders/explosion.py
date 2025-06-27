@@ -35,7 +35,7 @@ class Explosion(Turtle):
             self.screen.addshape(frame)
 
         self.index = 0      # Index of the current frame
-
+        self.hideturtle()
         self.penup()
         self.goto(position)
 

@@ -4,6 +4,7 @@ from laser import Laser
 from explosion import Explosion
 from time import time
 
+
 class SpaceShip(Turtle):
     """
     SpaceShip class represents the player's spaceship in the game.

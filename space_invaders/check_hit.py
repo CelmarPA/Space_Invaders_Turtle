@@ -1,4 +1,7 @@
 class CheckHit:
+    def __init__(self):
+        pass
+
     @staticmethod
     def check_collision(laser, ship, threshold):
         """
